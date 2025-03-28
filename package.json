@@ -3,13 +3,14 @@
   "version": "2.3.0",
   "private": true,
   "scripts": {
-    "start": "next dev",
+    "start_dev": "next dev",
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
-    "serve": "next start",
+    "start": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "clean": "rm -rf .next && rm -rf node_modules"
   },
   "dependencies": {
     "@headlessui/react": "2.2.0",
@@ -74,8 +75,8 @@
       "prettier --write"
     ]
   },
-  "packageManager": ">=pnpm@9.15.0",
+  "packageManager": "pnpm@9.15.3",
   "engines": {
-    "node": ">= 20.0.0"
+    "node": "^22.0.0"
   }
 }
